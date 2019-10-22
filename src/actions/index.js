@@ -8,4 +8,10 @@ export const fetchPosts = () =>
 
     };
 
-export default fetchPosts;
+export const fetchUser = (id) =>
+    async dispatch => {
+        const response = await jsonPlaceholder.get(`/user/${id}`);
+
+        dispatch({ type: 'FETCH_USER', payload: response.data })
+
+    };
